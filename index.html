@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Audios API</title>
+</head>
+
+<body class="center">
+    <h1>Búsqueda de Grabaciones de Aves en Chile</h1>
+
+    <div>
+        <h2 for="locSeleccionado">Selecciona una localidad:</h2><br>
+        <select id="locSeleccionado">
+            <option value="" disabled selected>Cargando localidades...</option>
+        </select><br>
+        <!--<input id="birds" type="text" value="birds" placeholder="Se seleccionan solo aves" disabled>-->
+    </div>
+    <br>
+    <div>
+        <button id="busca" onclick="buscarGrabaciones()">Buscar Grabaciones</button>
+        <button id="limpia" onclick="limpiarBusqueda()">Limpiar Búsqueda</button> </div>
+    </div>
+
+    <div id="results" class="grid-container">
+        </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
