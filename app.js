@@ -35,12 +35,14 @@ function searchLoc() {
 
             } else {
                 resultSelect.innerHTML = '<option value="" disabled selected>No se encontraron localidades</option>';
+                swal("Lo sentimos!", "No se encontraron localidades!", "error");
             }
         })
         .catch(error => {
             console.error('Error fetching data:', error);
             const resultSelect = document.getElementById('locSeleccionado');
             resultSelect.innerHTML = '<option value="" disabled selected>Error al cargar localidades</option>';
+            swal("Lo sentimos!", "Error al cargar localidades!", "error");
         });
 }
 
@@ -82,13 +84,15 @@ function searchBirds(selectedLocation) {
                     resultsDiv.appendChild(div);//se agrega a DOM lista según busqueda
                 });
             } else {
-                resultsDiv.innerHTML = '<p>No se encontraron grabaciones para esta búsqueda, intente con una nueva localidad</p>';
+                //resultsDiv.innerHTML = '<p>No se encontraron grabaciones para esta búsqueda, intente con una nueva localidad</p>';
+                swal("Lo sentimos!", "No se encontraron audios para esta búsqueda, intente con una nueva localidad!", "error");
             }
         })
         .catch(error => {
             console.error('Error fetching bird data:', error);
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '<p>Error al obtener las grabaciones. Intente nuevamente.</p>';
+            swal("Lo sentimos!", "Error al obtener los audios. Intente nuevamente.", "error");
         });
 }
 
@@ -99,7 +103,8 @@ function buscarGrabaciones() {
     if (selectedLocation) {
         searchBirds(selectedLocation);
     } else {
-        alert('Por favor, selecciona una localidad antes de buscar.');
+       // alert('Por favor, selecciona una localidad antes de buscar.');
+        swal("Intente nuevamente", "Selecciona una localidad antes de buscar", "warning");
     }
 }
 
